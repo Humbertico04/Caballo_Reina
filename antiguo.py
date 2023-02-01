@@ -1,11 +1,18 @@
 #Suma todos los elementos que hay
 def suma_elementos(lista):
-    return sum(len(lista[i]) for i in range(len(lista)))
+    suma=0
+    for i in range(len(lista)):
+        suma+=len(lista[i])
+    return suma
 
 #Calcula los elementos de la siguiente lista en el árbol
 def rama_siguiente(lista):
     a=[[4,6], [6,8], [7,9], [4,8], [3,9,0], [], [1,7,0], [2,6], [1,3], [2,4]]
-    return [a[i] for sublista in lista for i in sublista]
+    b=[]
+    for i in range(len(lista)):
+        for j in range(len(lista[i])):
+            b.append(a[lista[i][j]])
+    return b
 
 #Calcula los elementos del árbol hasta el n-ésimo nivel
 def n_ramas(n):
@@ -15,5 +22,4 @@ def n_ramas(n):
         print("{}:".format(i+1), suma_elementos(a))
         a=b
 
-n_ramas(20)
-
+n_ramas(7)

@@ -22,4 +22,4 @@ def n_ramas(n):
         print("{}:".format(i+1), suma_elementos(a))
         a=b
 
-n_ramas(7)
+n_ramas(20)

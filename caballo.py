@@ -26,7 +26,7 @@ def n_dic(n):
         # print(dici, "\n")
         dic_previmpar=dici
         
-n_dic(20)
+n_dic(10)
 
 if __name__ == "__main__":
     main()

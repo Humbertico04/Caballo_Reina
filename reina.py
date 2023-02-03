@@ -1,39 +1,36 @@
-# Crea matriz de 0's 7x7
+def posicion_reina(n):
+    posicion = []
+    for i in range(n+1):
+        if i%2 == 0 and i != 0:
+            posicion.append(i)
+    for i in range(n+1):
+        if i%2 != 0 and i != 0:
+            posicion.append(i)
+    return posicion
+
 def matriz(n):
-    a=[]
+    tablero=[]
     for i in range(n):
-        a.append([0]*n)
-    return a
+        tablero.append([0]*n)
+    return tablero
 
-def mov_reina(a, posición):
-    #Si esta en la misma fila o columna que la reina reemplaza por 1
-    for i in range(len(a)):
-        for j in range(len(a)):
-            if i==posición[0] or j==posición[1]:
-                a[i][j]=1
-    #Si esta en la misma diagonal que la reina reemplaza por 1
-    for i in range(len(a)):
-        for j in range(len(a)):
-            if i-j==posición[0]-posición[1] or i+j==posición[0]+posición[1]:
-                a[i][j]=1
-    return a
-a= mov_reina(matriz(7), [1, 0])
-print(a)
+def tablero_solucion(n):
+    tablero = matriz(n)
+    posición = posicion_reina(n)
+    for i in range(len(tablero)):
+        tablero[posición[i]-1][i] = 1
+    return tablero
 
-#Recorre la matriz buscando 0
-def busca_ceros(a):
-    for i in range(len(a)):
-        for j in range(len(a)):
-            if a[i][j]==0:
-                return True
-    return False
+print(tablero_solucion(10))
 
-print(busca_ceros(a))
 
-[[1, 1, 0, 0, 0, 0, 0], 
- [1, 1, 1, 1, 1, 1, 1], 
- [1, 1, 0, 0, 0, 0, 0], 
- [1, 0, 1, 0, 0, 0, 0], 
- [1, 0, 0, 1, 0, 0, 0], 
- [1, 0, 0, 0, 1, 0, 0], 
- [1, 0, 0, 0, 0, 1, 0]]
+[[0, 0, 0, 0, 0, 1, 0, 0, 0, 0], 
+ [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0, 1, 0, 0, 0], 
+ [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 
+ [0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0, 0, 0, 1, 0], 
+ [0, 0, 0, 1, 0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+ [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]]

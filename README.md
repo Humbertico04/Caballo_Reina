@@ -1,1 +1,1 @@
-# Caballo
+git@github.com:Humbertico04/Caballo_Reina.git

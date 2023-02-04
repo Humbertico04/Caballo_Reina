@@ -1,33 +1,25 @@
-# Crea matriz de 0's 7x7
+# Intento de buscar soluciones automaticamente para el problema de las reinas, quedó en ver como se mueve la reina
+
+import numpy as np
+
+#Crea matriz de ceros nxn
 def matriz(n):
-    a=[]
+    tablero=np.zeros((n,n))
+    return tablero
+
+#Dada la posición de la reina y un tablero nxn muestra con 1 las posiciones a las que puede moverse
+def mov_reina(n, posición):
+    matrizn=matriz(n)
+    #Si está en la misma fila o columna que la reina reemplaza por 1
     for i in range(n):
-        a.append([0]*n)
-    return a
+        for j in range(n):
+            if matrizn[i][j] != 2  and i==posición[0] or j==posición[1] :
+                matrizn[i][j]=1
+    #Si está en la misma diagonal que la reina reemplaza por 1
+    for i in range(n):
+        for j in range(n):
+            if matrizn[i][j] != 2 and i-j==posición[0]-posición[1] or i+j==posición[0]+posición[1]:
+                matrizn[i][j]=1
+    return matrizn
 
-def mov_reina(a, posición):
-    #Si esta en la misma fila o columna que la reina reemplaza por 1
-    for i in range(len(a)):
-        for j in range(len(a)):
-            if a[i][j] != 2  and i==posición[0] or j==posición[1] :
-                a[i][j]=1
-    #Si esta en la misma diagonal que la reina reemplaza por 1
-    for i in range(len(a)):
-        for j in range(len(a)):
-            if a[i][j] != 2 and i-j==posición[0]-posición[1] or i+j==posición[0]+posición[1]:
-                a[i][j]=1
-    return a
-b=matriz(7)
-b[1][0] = 2
-print(b)
-b= mov_reina(b, [1, 0])
-print(b)
-
-
-[[1, 1, 0, 0, 0, 0, 0], 
- [1, 1, 1, 1, 1, 1, 1], 
- [1, 1, 0, 0, 0, 0, 0], 
- [1, 0, 1, 0, 0, 0, 0], 
- [1, 0, 0, 1, 0, 0, 0], 
- [1, 0, 0, 0, 1, 0, 0], 
- [1, 0, 0, 0, 0, 1, 0]]
+mov_reina(6, [1, 0])

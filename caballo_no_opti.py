@@ -1,3 +1,5 @@
+# Versión de resolución del problema de los caballos sin optimizar (límite: hasta ~22)
+
 #Suma todos los elementos que hay
 def suma_elementos(lista):
     suma=0

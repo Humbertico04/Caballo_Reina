@@ -1,1 +1,1 @@
-import caballo
+import caballo, reina, reina_colorinchi
